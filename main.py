@@ -21,11 +21,12 @@ def data_api():
     """Put DocStrings in here"""
     return None
 
+
 @app.route('/icons/<team>.gif')
 def return_team_icon(team):
     """Returns the team logo when called from the javascript file"""
-
     return send_file(f'icons/{team}.gif', mimetype='image/gif')
+
 
 if __name__ == "__main__":
     app.run(debug=True)

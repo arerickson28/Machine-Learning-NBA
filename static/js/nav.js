@@ -1,4 +1,4 @@
-let teamList = `
+let teamList = `<option value=""></option> 
 <option value="AtlantaHawks">Atlanta Hawks</option> 
 <option value="BostonCeltics">Boston Celtics</option> 
 <option value="BrooklynNets">Brooklyn Nets</option> 
@@ -30,30 +30,50 @@ option value="LosAngelesClippers">Los Angeles Clippers</option>
 <option value="UtahJazz">Utah Jazz</option> 
 <option value="WashingtonWizards">Washington Wizards</option>`
 
-function getTeamOption(teamNumber) {
+function querySelector(teamNumber) {
+    // This function queries the selector to return the team Name for logo files and data.
     selectElement = document.querySelector(`#team${teamNumber}`);
+    teamName = selectElement.options[selectElement.selectedIndex].value;
+    return teamName
+}
 
-    output = selectElement.options[selectElement.selectedIndex].value;
-    let teamImage = `../icons/${output}.gif`
+function getTeamLogo(teamNumber) {
+    // This function returns the image file from the team selector by calling the flask endpoint for the image.
+    teamName = querySelector(teamNumber)
+    if (teamName === '') {
+        return ''
+    }
+    let imageHTML = `<img id="team${teamNumber}Icon" src="icons/${teamName}.gif" alt=${teamName} width="300" height="200"></img>`
+    return imageHTML;
+}
 
-    // this line can be replaced when we have stats
-    document.querySelector(`#output${teamNumber}`).textContent = output;
+function getTeamStats(teamNumber) {
+    // This function is a stub until we get the data for real stats.  Hardcoded html for now.
+    teamName = querySelector(teamNumber)
+    if (teamName === '') {
+        return ''
+    }
+    let teamStatsHTML = `<br><stats will be entered here.  Using this 'teamName' to call data source when
+        ready.  <br><br><h3> Sample Stats:</h3> <h4>Team Roster:<br><br></h4>Ali "the monster" Anderson - Center
+        <br> Rhyce "cake" Erickson - Forward
+        <br> Cynthia "bubble tea" Kunakom - Guard
+        <br> json - Floor polisher`
+    return teamStatsHTML;
+}
 
-    let imageHTML = `<img id="team${teamNumber}Icon" src="icons/${output}.gif" alt=${output} width="304" height="228"></img>`
-    document.getElementById(`Team${teamNumber}Logo`).innerHTML = imageHTML;
+function getTeamOptionManager(teamNumber) {
+    // This function will populate all the html for logo and stats or whatever else we may write.
+    document.getElementById(`Team${teamNumber}Logo`).innerHTML = getTeamLogo(teamNumber);
+    document.getElementById(`Team${teamNumber}Stats`).innerHTML = getTeamStats(teamNumber);
+    // Add more stats stuff here
 }
 
 function getTeamInnerHTML(teamNumber) {
+    // Initial function to manage the selector and call other functions for data/images
     let teamHTML = `<p> Select a team 
-    <select id="team${teamNumber}" onfocusout="getTeamOption(${teamNumber})"> ${teamList}</select> 
-    </p> 
-    
-    <p> 
-    Insert Team Stats here:  
-    <span id="output${teamNumber}"></span> 
-    </p>`
+    <select id="team${teamNumber}" onfocusout="getTeamOptionManager(${teamNumber})"> ${teamList}</select> 
+    </p> `
     return teamHTML
 }
-
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);

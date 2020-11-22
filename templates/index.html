@@ -5,7 +5,7 @@
     <title>{{title}}</title>
     <meta charset="utf-8">
     <meta name="description" content={{description}}>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     <!-- Leaflet/Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,6 +15,7 @@
     <!--Our css-->
     <link rel="stylesheet" href="static/css/styles.css">
 
+    <!-- TODO: Insert an NBA favicon here... -->
     <link rel="icon" type="image/png" href="#">
 </head>
 
@@ -23,15 +24,17 @@
 
 <div class="row">
     <div class="col-6">
-        Team 1
+        <h2>Team 1</h2>
         <div id="Team1Selector"></div>
         <div id="Team1Logo"></div>
+        <div id="Team1Stats"></div>
     </div>
 
     <div class="col-6">
-        Team 2
+        <h2>Team 2</h2>
         <div id="Team2Selector"></div>
         <div id="Team2Logo"></div>
+        <div id="Team2Stats"></div>
     </div>
 </div>
 <script src="../static/js/nav.js"></script>
