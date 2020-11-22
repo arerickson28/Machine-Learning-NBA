@@ -71,7 +71,7 @@ function getTeamOptionManager(teamNumber) {
 function getTeamInnerHTML(teamNumber) {
     // Initial function to manage the selector and call other functions for data/images
     let teamHTML = `<p> Select a team 
-    <select id="team${teamNumber}" onfocusout="getTeamOptionManager(${teamNumber})"> ${teamList}</select> 
+    <select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select> 
     </p> `
     return teamHTML
 }

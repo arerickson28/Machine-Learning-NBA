@@ -1,6 +1,10 @@
 body {
-    background: #f7f7f7;
-    color: #3A3637;
-    text-align: center
-    
+    background-color:black;
+    color: #E47041;
+    text-align: center;
+}
+
+.stats {
+    text-align: left;
+    margin-left: 15px;
 }
