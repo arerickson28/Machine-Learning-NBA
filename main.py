@@ -3,7 +3,7 @@ from flask import render_template
 from flask import Flask, jsonify, redirect, send_file
 import json
 
-# Setup Flask Local Server and SQL Server data connection
+# Setup Flask Local Serve
 app = Flask(__name__)
 
 
@@ -22,10 +22,10 @@ def data_api():
     return None
 
 
-@app.route('/icons/<team>.gif')
-def return_team_icon(team):
+@app.route('/getTeamLogo/<teamName>')
+def return_team_icon(teamName):
     """Returns the team logo when called from the javascript file"""
-    return send_file(f'icons/{team}.gif', mimetype='image/gif')
+    return send_file(f'icons/{teamName}.gif', mimetype='image/gif')
 
 
 if __name__ == "__main__":
