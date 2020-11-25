@@ -11,22 +11,35 @@ function getTeamLogo(teamNumber) {
     if (teamName === '') {
         return ''
     }
-    let imageHTML = `<img id="team${teamNumber}Icon" src="getTeamLogo/${teamName}" alt=${teamName} width="300" height="200"></img>`
+    let imageHTML = `<img id="team${teamNumber}Icon" src="getTeamLogo/${teamName}" alt=${teamName} width="225" height="150"></img>`
     return imageHTML;
 }
 
 function getTeamStats(teamNumber) {
     // This function is a stub until we get the data for real stats.  Hardcoded html for now.
+    
     teamName = querySelector(teamNumber)
     if (teamName === '') {
         return ''
     }
-    let teamStatsHTML = `<br><stats will be entered here.  Using this 'teamName' to call data source when
-        ready.  <br><br><h3> Sample Stats:</h3> <h4>Team Roster:<br><br></h4>Ali "the monster" Anderson - Center
-        <br> Rhyce "cake" Erickson - Forward
-        <br> Cynthia "bubble tea" Kunakom - Guard
-        <br> json - Floor polisher`
-    return teamStatsHTML;
+
+
+    // This is where I am having trouble with variable Scope.  I cannot get teamStats populated to the for loop
+    // below.  I get one iteration behind.  I know it is global in scope but I cannot figure out how to return
+    // a local variable within this function.  Site ServiceWorkerMessageEvent, but is always one selection in behind.
+    
+    d3.json(`/getTeamStats/${teamName}`).then(function (data) {
+        teamStats = data;
+        console.log(teamStats)
+    })
+
+    playerHTML = ``
+    for (i = 0; i < teamStats.length; i++) {
+        playerHTML += `${teamStats[i]['player_name']}, ${teamStats[i]['age']} 
+        - ${Math.round(teamStats[i]['player_height'])}cm; ${Math.round(teamStats[i]['player_weight'])}kg. <br>`
+
+    }
+    return playerHTML;
 }
 
 function getTeamOptionManager(teamNumber) {
@@ -38,9 +51,7 @@ function getTeamOptionManager(teamNumber) {
 
 function getTeamInnerHTML(teamNumber) {
     // Initial function to manage the selector and call other functions for data/images
-    let teamHTML = `<p> Select a team 
-    <select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select> 
-    </p> `
+    let teamHTML = `<p><select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select></p> `
     return teamHTML
 }
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);

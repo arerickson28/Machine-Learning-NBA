@@ -1,7 +1,8 @@
 body {
-    background-color:black;
-    color: #E47041;
+    background-color:rgb(221, 221, 221);
+    color: #060b52;
     text-align: center;
+    margin-left: 20px;
 }
 
 .stats {
