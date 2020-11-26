@@ -23,22 +23,35 @@ function getTeamStats(teamNumber) {
         return ''
     }
 
+    // TODO:  Refactor this into a straight jQuery get as ajax is deprecated and will send a notice to the console.
 
-    // This is where I am having trouble with variable Scope.  I cannot get teamStats populated to the for loop
-    // below.  I get one iteration behind.  I know it is global in scope but I cannot figure out how to return
-    // a local variable within this function.  Site ServiceWorkerMessageEvent, but is always one selection in behind.
+    // let teamStats = $.get(`/getTeamStats/${teamName}`, function(data, status, xhr) {
+    //     return(data)
+    // }, "json");
+
     
-    d3.json(`/getTeamStats/${teamName}`).then(function (data) {
-        teamStats = data;
-        console.log(teamStats)
-    })
+    let teamStats = $.ajax({type: "GET", 
+        dataType: 'json',
+        url: `/getTeamStats/${teamName}`, 
+        async: false}).responseJSON;
 
-    playerHTML = ``
+    playerHTML = `<table>
+    <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
+    <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th></tr>`
+
     for (i = 0; i < teamStats.length; i++) {
-        playerHTML += `${teamStats[i]['player_name']}, ${teamStats[i]['age']} 
-        - ${Math.round(teamStats[i]['player_height'])}cm; ${Math.round(teamStats[i]['player_weight'])}kg. <br>`
-
+        playerHTML += `<tr>
+        <td>${teamStats[i]['player_name']}</td> 
+        <td>${teamStats[i]['age']} </td>
+        <td>${Math.round(teamStats[i]['player_height'])}</td> 
+        <td>${Math.round(teamStats[i]['player_weight'])}</td>
+        <td>${teamStats[i]['college']} </td>
+        <td>${teamStats[i]['draft_year']} </td>
+        </tr>`
     }
+
+    playerHTML += `</table>`
+
     return playerHTML;
 }
 

@@ -41,5 +41,10 @@ def return_team_stats(teamName):
 
     return  team_json
 
+@app.route('/favicon')
+def favicon():
+    """Returns the site favicon"""
+    return send_file(f'icons/basketball.png', mimetype='image/gif')
+
 if __name__ == "__main__":
     app.run(debug=True)
