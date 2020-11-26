@@ -7,37 +7,43 @@
     <meta name="description" content={{description}}>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
-    <!-- Leaflet/Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- d3, jQuery and our js -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../static/js/teams.js"></script>
 
     <!--Our css-->
     <link rel="stylesheet" href="static/css/styles.css">
 
-    <!-- TODO: Insert an NBA favicon here... -->
-    <link rel="icon" type="image/png" href="#">
+    <!--https://icons8.com/icons/set/basketball -->
+    <link rel="icon" type="image/png" href="/favicon">
 </head>
 
 <body>
-<h1>NBA Data</h1><br><br><hr><hr>
+    <h1>NBA Data</h1><br><br>
+    <hr>
+    <hr>
 
-<div class="row">
-    <div class="col-6">
-        <h2>Team 1</h2>
-        <div id="Team1Selector"></div>
-        <div id="Team1Logo"></div>
-        <div id="Team1Stats" class="stats"></div>
-    </div>
+    <div class="row">
+        <div class="col-6">
+            <h2>Team 1</h2>
+            <div id="Team1Selector"></div>
+            <div id="Team1Logo"></div>
+            <div id="Team1Stats" class="stats"></div>
+        </div>
 
-    <div class="col-6">
-        <h2>Team 2</h2>
-        <div id="Team2Selector"></div>
-        <div id="Team2Logo"></div>
-        <div id="Team2Stats" class="stats"></div>
+        <div class="col-6">
+            <h2>Team 2</h2>
+            <div id="Team2Selector"></div>
+            <div id="Team2Logo"></div>
+            <div id="Team2Stats" class="stats"></div>
+        </div>
     </div>
-</div>
-<script src="../static/js/nav.js"></script>
+    <script src="../static/js/nav.js"></script>
 </body>
+
 </html>
