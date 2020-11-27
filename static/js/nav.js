@@ -75,5 +75,15 @@ function getTeamInnerHTML(teamNumber) {
     </p> `
     return teamHTML
 }
+
+// Rhyce's code
+var predict = d3.select(".button")
+predict.on("click", function() 
+    {
+        console.log("The predict button has been clicked")
+    });
+
+
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
+
