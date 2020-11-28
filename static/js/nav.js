@@ -2,12 +2,14 @@ function querySelector(teamNumber) {
     // This function queries the selector to return the team Name for logo files and data.
     let selectElement = document.querySelector(`#team${teamNumber}`);
     let teamName = selectElement.options[selectElement.selectedIndex].value;
-    return teamName;
+    let teamNameFull = selectElement.options[selectElement.selectedIndex].text;
+
+    return {'teamName': teamName, 'teamNameFull': teamNameFull};
 }
 
 function getTeamLogo(teamNumber) {
     // This function returns the image file from the team selector by calling the flask endpoint for the image.
-    let teamName = querySelector(teamNumber);
+    let teamName = querySelector(teamNumber)['teamName'];
     if (teamName === '') {
         return '';
     }
@@ -15,27 +17,14 @@ function getTeamLogo(teamNumber) {
     return imageHTML;
 }
 
-
-// TODO:  break apart functions to querySelector both teams on predict
-// TODO: take returned object and display results on page.
-
-
-
 function getTeamStats(teamNumber) {
     // This function is a stub until we get the data for real stats.  Hardcoded html for now.
     
-    let teamName = querySelector(teamNumber);
+    let teamName = querySelector(teamNumber)['teamName'];
     if (teamName === '') {
         return '';
     }
 
-    // TODO:  Refactor this into a straight jQuery get as ajax is deprecated and will send a notice to the console.
-
-    // let teamStats = $.get(`/getTeamStats/${teamName}`, function(data, status, xhr) {
-    //     return(data)
-    // }, "json");
-
-    
     let teamStats = $.ajax({type: "GET", 
         dataType: 'json',
         url: `/getTeamStats/${teamName}`, 
@@ -65,7 +54,6 @@ function getTeamOptionManager(teamNumber) {
     // This function will populate all the html for logo and stats or whatever else we may write.
     document.getElementById(`Team${teamNumber}Logo`).innerHTML = getTeamLogo(teamNumber);
     document.getElementById(`Team${teamNumber}Stats`).innerHTML = getTeamStats(teamNumber);
-    // Add more stats stuff here
 }
 
 function getTeamInnerHTML(teamNumber) {
@@ -73,14 +61,6 @@ function getTeamInnerHTML(teamNumber) {
     let teamHTML = `<p><select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select></p> `;
     return teamHTML;
 }
-
-// Rhyce's code
-
-function getWinningTeamName()
-    {
-        let winner = "<h3>winning team name will go here</h3>"
-        return winner
-    }
 
 function getWinningTeamLogo(winningName)
     {
@@ -91,36 +71,39 @@ function getWinningTeamLogo(winningName)
         return winningLogo
     }
 
-
 var predict = d3.select(".button")
 predict.on("click", function() 
     {
-        console.log("The predict button has been clicked")
-
-        HomeTeam = querySelector(1)
-        VisitingTeam = querySelector(2)
+        let HomeTeam = querySelector(1)['teamName'];
+        let VisitingTeam = querySelector(2)['teamName'];
 
         //Todo: handle exception in the case of no or only one team is selected (be nice)
         //Rearrange webpage
-
-        console.log(HomeTeam)
-        console.log(VisitingTeam)
 
         let winnerDetails = $.ajax({type: "GET", 
         dataType: 'json',
         url: `/getWinner/${HomeTeam}&${VisitingTeam}`,
         async: false}).responseJSON;
 
-        console.log(winnerDetails)
+        winningName = winnerDetails["winner"];
 
-        winningName = winnerDetails["winner"]
-        console.log(winningName)
+        if (winningName === HomeTeam) {
+            let teamNumber = 1;
+            let teamSide = 'home team';
+        }
 
-        // document.getElementById("winning_team_name").innerHTML = getWinningTeamName()
-        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName)
+        else {
+            let teamNumber = 2;
+            let teamSide = 'visiting team';
+        }
+        let fullTeamName = querySelector(teamNumber)['teamNameFull'];
+
+        document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>;
+        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
+        document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
+            with ${winnerDetails['accuracy'] *100}% accuracy.`;
     });
 
-// End Rhyce's code
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
