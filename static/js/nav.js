@@ -1,26 +1,32 @@
 function querySelector(teamNumber) {
     // This function queries the selector to return the team Name for logo files and data.
-    selectElement = document.querySelector(`#team${teamNumber}`);
-    teamName = selectElement.options[selectElement.selectedIndex].value;
-    return teamName
+    let selectElement = document.querySelector(`#team${teamNumber}`);
+    let teamName = selectElement.options[selectElement.selectedIndex].value;
+    return teamName;
 }
 
 function getTeamLogo(teamNumber) {
     // This function returns the image file from the team selector by calling the flask endpoint for the image.
-    teamName = querySelector(teamNumber)
+    let teamName = querySelector(teamNumber);
     if (teamName === '') {
-        return ''
+        return '';
     }
-    let imageHTML = `<img id="team${teamNumber}Icon" src="getTeamLogo/${teamName}" alt=${teamName} width="225" height="150"></img>`
+    let imageHTML = `<img id="team${teamNumber}Icon" src="getTeamLogo/${teamName}" alt=${teamName} width="225" height="150"></img>`;
     return imageHTML;
 }
+
+
+// TODO:  break apart functions to querySelector both teams on predict
+// TODO: take returned object and display results on page.
+
+
 
 function getTeamStats(teamNumber) {
     // This function is a stub until we get the data for real stats.  Hardcoded html for now.
     
-    teamName = querySelector(teamNumber)
+    let teamName = querySelector(teamNumber);
     if (teamName === '') {
-        return ''
+        return '';
     }
 
     // TODO:  Refactor this into a straight jQuery get as ajax is deprecated and will send a notice to the console.
@@ -35,9 +41,9 @@ function getTeamStats(teamNumber) {
         url: `/getTeamStats/${teamName}`, 
         async: false}).responseJSON;
 
-    playerHTML = `<table>
+    let playerHTML = `<table>
     <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
-    <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th></tr>`
+    <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th></tr>`;
 
     for (i = 0; i < teamStats.length; i++) {
         playerHTML += `<tr>
@@ -47,10 +53,10 @@ function getTeamStats(teamNumber) {
         <td>${Math.round(teamStats[i]['player_weight'])}</td>
         <td>${teamStats[i]['college']} </td>
         <td>${teamStats[i]['draft_year']} </td>
-        </tr>`
+        </tr>`;
     }
 
-    playerHTML += `</table>`
+    playerHTML += `</table>`;
 
     return playerHTML;
 }
@@ -64,8 +70,8 @@ function getTeamOptionManager(teamNumber) {
 
 function getTeamInnerHTML(teamNumber) {
     // Initial function to manage the selector and call other functions for data/images
-    let teamHTML = `<p><select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select></p> `
-    return teamHTML
+    let teamHTML = `<p><select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select></p> `;
+    return teamHTML;
 }
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
