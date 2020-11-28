@@ -82,9 +82,12 @@ function getWinningTeamName()
         return winner
     }
 
-function getWinningTeamLogo()
+function getWinningTeamLogo(winningName)
     {
-        let winningLogo =  "<img src = '#' alt = 'winning team logo will go here'></img>"
+        // let teamName = querySelector(teamNumber);
+
+        let winningLogo =  `<img id="winning_team_logo" src="getTeamLogo/${winningName}" alt=${winningName} width="225" height="150"></img>`;
+        // "<img src = '#' alt = 'winning team logo will go here'></img>"
         return winningLogo
     }
 
@@ -93,8 +96,25 @@ var predict = d3.select(".button")
 predict.on("click", function() 
     {
         console.log("The predict button has been clicked")
-        document.getElementById("winning_team_name").innerHTML = getWinningTeamName()
-        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo()
+
+        HomeTeam = querySelector(1)
+        VisitingTeam = querySelector(2)
+
+        console.log(HomeTeam)
+        console.log(VisitingTeam)
+
+        let winnerDetails = $.ajax({type: "GET", 
+        dataType: 'json',
+        url: `/getWinner/${HomeTeam}&${VisitingTeam}`,
+        async: false}).responseJSON;
+
+        console.log(winnerDetails)
+
+        winningName = winnerDetails["winner"]
+        console.log(winningName)
+
+        // document.getElementById("winning_team_name").innerHTML = getWinningTeamName()
+        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName)
     });
 
 // End Rhyce's code

@@ -46,8 +46,8 @@ def getWinner(HomeTeam, VisitingTeam):
 
     # TODO:  Cynthia and Ali will write code to take team abbreviations, and get Stats, load model, pass stats into model, and return
     # and object containing, winner (char(3)), (Accuracy)
-    {'winner': 'BOS', 'accuracy': 0.92763845297436592743659723645}
-    return None
+    test = {'winner': 'BOS', 'accuracy': 0.92763845297436592743659723645}
+    return test
 
 @app.route('/favicon')
 def favicon():
