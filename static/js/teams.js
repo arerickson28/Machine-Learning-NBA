@@ -13,7 +13,7 @@ let teamList = `<option value=""></option>
 <option value="GSW">Golden State Warriors</option> 
 <option value="HOU">Houston Rockets</option> 
 <option value="IND">Indiana Pacers</option> 
-option value="LAC">Los Angeles Clippers</option> 
+<option value="LAC">Los Angeles Clippers</option> 
 <option value="LAL">Los Angeles Lakers</option> 
 <option value="MEM">Memphis Grizzlies</option> 
 <option value="MIA">Miami Heat</option> 
