@@ -88,14 +88,14 @@ def getWinner(homeTeam, visitingTeam):
     # Load scaler for the model
     scaler = load(open('model/scaler.pkl', 'rb'))
 
-    # transform the test dataset
+    # Transform the test dataset
     X_test_scaled = scaler.transform(reshape_datarow)
 
     # Evaluate the model using the training data
     predictions = model.predict(X_test_scaled)
     predictions_round = model.predict(X_test_scaled).round()
 
-    # if first index is 0, home team wins, if first index is 1, home team loss
+    # If first index is 0, home team wins; otherwise home team loses
     homeTeamOutcome = predictions_round[0][0] 
 
     if homeTeamOutcome == 0.0:
@@ -112,7 +112,7 @@ def getWinner(homeTeam, visitingTeam):
     else:
         accuracy = probability_first
 
-    # Return it the way JASON WANTS IT
+    # Return it the way JASON WANTS IT :P
     return {'winner': winner, 'accuracy': accuracy}
 
 @app.route('/favicon')
