@@ -100,6 +100,9 @@ predict.on("click", function()
         HomeTeam = querySelector(1)
         VisitingTeam = querySelector(2)
 
+        //Todo: handle exception in the case of no or only one team is selected (be nice)
+        //Rearrange webpage
+
         console.log(HomeTeam)
         console.log(VisitingTeam)
 
