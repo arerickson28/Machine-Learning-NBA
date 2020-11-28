@@ -24,3 +24,58 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: #c2c1c1;
   }
+
+.trophy_slide {
+    animation-duration: 10s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes slidein {
+    0% {
+      margin-left: 0%;
+    }
+  
+    25% {
+      margin-left: 25%;
+    }
+  
+    50% {
+      margin-left: 50%
+    }
+  
+    75% {
+        margin-right: 25%;
+    } 
+
+    100% {
+        margin-right: 0% ;
+    }
+
+}
+  
+  
+.button {
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+.button {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #4CAF50;
+    }
+    
+.button:hover {
+      background-color: #4CAF50;
+      color: white;
+    }

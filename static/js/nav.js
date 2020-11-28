@@ -67,5 +67,33 @@ function getTeamInnerHTML(teamNumber) {
     let teamHTML = `<p><select id="team${teamNumber}" onChange="getTeamOptionManager(${teamNumber})"> ${teamList}</select></p> `
     return teamHTML
 }
+
+// Rhyce's code
+
+function getWinningTeamName()
+    {
+        let winner = "<h3>winning team name will go here</h3>"
+        return winner
+    }
+
+function getWinningTeamLogo()
+    {
+        let winningLogo =  "<img src = '#' alt = 'winning team logo will go here'></img>"
+        return winningLogo
+    }
+
+
+var predict = d3.select(".button")
+predict.on("click", function() 
+    {
+        console.log("The predict button has been clicked")
+        document.getElementById("winning_team_name").innerHTML = getWinningTeamName()
+        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo()
+    });
+
+// End Rhyce's code
+
+
+
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
