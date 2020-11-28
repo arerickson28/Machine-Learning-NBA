@@ -84,18 +84,18 @@ def getWinner(homeTeam, visitingTeam):
     print(reshape_datarow)
 
     # Load the model
-    model = load_model('saved_deep_neural_game.h5')
+    model = load_model('model/saved_deep_neural_game.h5')
     # Load scaler for the model
     scaler = load(open('model/scaler.pkl', 'rb'))
 
-    # Transform the test dataset
+    # transform the test dataset
     X_test_scaled = scaler.transform(reshape_datarow)
 
     # Evaluate the model using the training data
     predictions = model.predict(X_test_scaled)
     predictions_round = model.predict(X_test_scaled).round()
 
-    # If first index is 0, home team wins; otherwise home team loses
+    # if first index is 0, home team wins, if first index is 1, home team loss
     homeTeamOutcome = predictions_round[0][0] 
 
     if homeTeamOutcome == 0.0:
@@ -112,8 +112,9 @@ def getWinner(homeTeam, visitingTeam):
     else:
         accuracy = probability_first
 
-    # Return it the way JASON WANTS IT :P
-    return {'winner': winner, 'accuracy': accuracy}
+    accuracyRounded = round(accuracy,2) *100
+    # Return it the way JASON WANTS IT
+    return {'winner': winner, 'accuracy': accuracyRounded}
 
 @app.route('/favicon')
 def favicon():

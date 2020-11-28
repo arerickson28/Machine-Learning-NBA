@@ -80,30 +80,35 @@ predict.on("click", function()
         //Todo: handle exception in the case of no or only one team is selected (be nice)
         //Rearrange webpage
 
+        // var url = `getWinner/${HomeTeam}&${VisitingTeam}`;
+        // d3.json(url, function (json) {
+        //     console.log(json)
+        // });
+
         let winnerDetails = $.ajax({type: "GET", 
         dataType: 'json',
         url: `/getWinner/${HomeTeam}&${VisitingTeam}`,
         async: false}).responseJSON;
 
         winningName = winnerDetails["winner"];
+        console.log(HomeTeam, VisitingTeam, winningName)
 
         if (winningName === HomeTeam) {
-            let teamNumber = 1;
-            let teamSide = 'home team';
+            teamNumber = 1;
+            teamSide = 'home team';
         }
 
         else {
-            let teamNumber = 2;
-            let teamSide = 'visiting team';
+            teamNumber = 2;
+            teamSide = 'visiting team';
         }
         let fullTeamName = querySelector(teamNumber)['teamNameFull'];
 
         document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
         document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
         document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
-            with ${winnerDetails['accuracy'] *100}% accuracy.`;
+            with ${winnerDetails['accuracy']}% accuracy.`;
     });
-
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
