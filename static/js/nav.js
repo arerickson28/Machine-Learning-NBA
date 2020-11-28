@@ -98,7 +98,7 @@ predict.on("click", function()
         }
         let fullTeamName = querySelector(teamNumber)['teamNameFull'];
 
-        document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>;
+        document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
         document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
         document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
             with ${winnerDetails['accuracy'] *100}% accuracy.`;
