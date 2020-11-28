@@ -122,7 +122,5 @@ predict.on("click", function()
 
 // End Rhyce's code
 
-
-
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);

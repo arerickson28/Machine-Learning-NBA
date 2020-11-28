@@ -15,17 +15,11 @@ def home():
                            description="Predict matchups from your favorite NBA teams")
 
 
-# Use the <qid> as the param if needed.  Not sure how many endpoint we will need yet
-@app.route('/data_api')
-def data_api():
-    """Put DocStrings in here"""
-    return None
-
-
 @app.route('/getTeamLogo/<teamName>')
 def return_team_logo(teamName):
     """Returns the team logo when called from the javascript file"""
     return send_file(f'icons/{teamName}.gif', mimetype='image/gif')
+
 
 @app.route('/getTeamStats/<teamName>')
 def return_team_stats(teamName):
@@ -41,6 +35,7 @@ def return_team_stats(teamName):
 
     return  team_json
 
+
 @app.route('/getWinner/<HomeTeam>&<VisitingTeam>')
 def getWinner(HomeTeam, VisitingTeam):
 
@@ -48,6 +43,7 @@ def getWinner(HomeTeam, VisitingTeam):
     # and object containing, winner (char(3)), (Accuracy)
     test = {'winner': 'BOS', 'accuracy': 0.92763845297436592743659723645}
     return test
+
 
 @app.route('/favicon')
 def favicon():
