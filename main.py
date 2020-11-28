@@ -84,7 +84,7 @@ def getWinner(homeTeam, visitingTeam):
     print(reshape_datarow)
 
     # Load the model
-    model = load_model('saved_deep_neural_game.h5')
+    model = load_model('model/saved_deep_neural_game.h5')
     # Load scaler for the model
     scaler = load(open('model/scaler.pkl', 'rb'))
 
