@@ -66,3 +66,12 @@ tr:nth-child(odd) {
       background-color: #4CAF50;
       color: white;
     }
+
+    .winner {
+        color: goldenrod ;
+    }
+
+    hr {
+        height: 2px ;
+        background-color: goldenrod ;
+    }
