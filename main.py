@@ -59,10 +59,6 @@ def getWinner(homeTeam, visitingTeam):
     homeTeamAvg = home_team.mean()
     visitTeamAvg = visiting_team.mean()
 
-    print(homeTeamAvg)
-    print('--------------------')
-    print(visitTeamAvg)
-
     # Defining the data row to be input for model
     homeHeightAvg = homeTeamAvg['player_height']
     homeWeightAvg = homeTeamAvg['player_weight']
@@ -80,9 +76,6 @@ def getWinner(homeTeam, visitingTeam):
     data_row = predict_this_df.iloc[0].values
     reshape_datarow = data_row.reshape(1, -1)
 
-    print(data_row)
-    print(reshape_datarow)
-
     # Load the model
     model = load_model('model/saved_deep_neural_game.h5')
     # Load scaler for the model
@@ -94,23 +87,33 @@ def getWinner(homeTeam, visitingTeam):
     # Evaluate the model using the training data
     predictions = model.predict(X_test_scaled)
     predictions_round = model.predict(X_test_scaled).round()
+    print(f'Predictions: {predictions}')
+    print(f'Predictions rounded: {predictions_round}')
 
     # if first index is 0, home team wins, if first index is 1, home team loss
     homeTeamOutcome = predictions_round[0][0] 
+    winner = ''
+    print(f'homeTeamOutcome variable: {homeTeamOutcome}')
 
     if homeTeamOutcome == 0.0:
         winner = homeTeam
+        print(f'Home team wins: {winner}')
     else:
         winner = visitingTeam
+        print(f'Visitor team wins: {winner}')
 
     # Gives the higher probability as output
     probability_first = predictions[0][0]
     probability_second = predictions[0][1]
+    print(f'Probability first: {probability_first}')
+    print(f'Probability second: {probability_second}')
 
     if probability_first < probability_second:
         accuracy = probability_second
+        print(f'Accuracy: {accuracy}')
     else:
         accuracy = probability_first
+        print(f'Accuracy: {accuracy}')
 
     accuracyRounded = round(accuracy,2) *100
     # Return it the way JASON WANTS IT
