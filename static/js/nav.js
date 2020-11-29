@@ -77,37 +77,51 @@ predict.on("click", function()
         let HomeTeam = querySelector(1)['teamName'];
         let VisitingTeam = querySelector(2)['teamName'];
 
-        //Todo: handle exception in the case of no or only one team is selected (be nice)
-        //Rearrange webpage
 
-        // var url = `getWinner/${HomeTeam}&${VisitingTeam}`;
-        // d3.json(url, function (json) {
-        //     console.log(json)
-        // });
+        if (HomeTeam == ''|| VisitingTeam == '')
 
-        let winnerDetails = $.ajax({type: "GET", 
-        dataType: 'json',
-        url: `/getWinner/${HomeTeam}&${VisitingTeam}`,
-        async: false}).responseJSON;
+                {
+                    document.getElementById("TwoTeamsNeeded").innerHTML = `<h2>Please Select Two Teams To Make A Prediction</h2>` ;
+                    document.getElementById("winning_team_name").innerHTML = `` ;
+                    document.getElementById("winning_team_logo").innerHTML = `` ;
+                    document.getElementById("homeORvisit").innerHTML = `` ;
+                }
 
-        winningName = winnerDetails["winner"];
-        console.log(HomeTeam, VisitingTeam, winningName)
+            else 
+                {
+                    var url = `getWinner/${HomeTeam}&${VisitingTeam}`;
+                    d3.json(url, function (json) {
+                        console.log(json)
+                    });
+            
+                    let winnerDetails = $.ajax({type: "GET", 
+                    dataType: 'json',
+                    url: `/getWinner/${HomeTeam}&${VisitingTeam}`,
+                    async: false}).responseJSON;
+            
+                    winningName = winnerDetails["winner"];
+                    console.log(HomeTeam, VisitingTeam, winningName)
+            
+                    if (winningName === HomeTeam) {
+                        teamNumber = 1;
+                        teamSide = 'home team';
+                    }
+            
+                    else {
+                        teamNumber = 2;
+                        teamSide = 'visiting team';
+                    }
+                    let fullTeamName = querySelector(teamNumber)['teamNameFull'];
 
-        if (winningName === HomeTeam) {
-            teamNumber = 1;
-            teamSide = 'home team';
-        }
+                    document.getElementById("TwoTeamsNeeded").innerHTML = `` ;
+                    document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
+                    document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
+                    document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
+                        with ${winnerDetails['accuracy']}% accuracy.`;
+                }
+             
 
-        else {
-            teamNumber = 2;
-            teamSide = 'visiting team';
-        }
-        let fullTeamName = querySelector(teamNumber)['teamNameFull'];
-
-        document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
-        document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
-        document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
-            with ${winnerDetails['accuracy']}% accuracy.`;
+      
     });
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
