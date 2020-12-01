@@ -9,7 +9,7 @@ To predict the outcome of basketball games.
 ### Project involves:  
 * Datawork
   * API calls to https://www.balldontlie.io/#getting-started to retrieve data  
-  * Cleaning Data  
+  * Cleaning Data (Python)
   * Choosing data parameters for use in machine learning models  
     * Chosen: Player height, weight, and age weighted by playtime in game
   * Saving Data to CSV
@@ -22,8 +22,12 @@ To predict the outcome of basketball games.
   * Saving models  
 
 * Website Design  
+  * Setting up Flask Server (Python)
   * HTML
-  * Javascript  
   * CSS  
-  * Setting up Flask Server 
+  * Javascript  
+    * Calls Flask server to retrieve player stats and run machine learning model
+  * Hosting Website
+  
+  
 
