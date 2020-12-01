@@ -33,7 +33,7 @@ function getTeamStats(teamNumber) {
     let playerHTML = `<table id = team${teamNumber}Table>
     <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
     <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th>
-    <th> Input Time to Play</th></tr>`;
+    <th> Input Time to Play (minutes)</th></tr>`;
 
     for (i = 0; i < teamStats.length; i++) {
         playerHTML += `<tr>
