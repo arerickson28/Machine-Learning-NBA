@@ -16,6 +16,10 @@ def home():
                            title="NBA Game Predictor",
                            description="Predict matchups from your favorite NBA teams")
 
+@app.route('/team')
+def team():
+    """Team page."""
+    return render_template("team.html")
 
 @app.route('/getTeamLogo/<teamName>')
 def return_team_logo(teamName):
