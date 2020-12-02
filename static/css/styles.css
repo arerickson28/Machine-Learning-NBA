@@ -76,6 +76,10 @@ tr:nth-child(odd) {
         background-color: goldenrod ;
     }
 
+.inputClass {
+        border-color: grey;
+    }
+
 h1 {
     color: #7f0000;
 }
@@ -83,3 +87,4 @@ h1 {
 h2 {
     color:#000022;
 }
+
