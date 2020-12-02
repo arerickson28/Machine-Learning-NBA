@@ -4,12 +4,12 @@
 For our final project, we use National Basketball Association player and team statistic data to explore machine learning concepts.  
 
 ### Purpose:  
-To predict the outcome of basketball games. 
+To predict the outcome of basketball games using parameters such as player height, weight, age, and time spent contributing to game.  
 
 ### Project involves:  
-* Datawork
+* Datawork (Python)
   * API calls to https://www.balldontlie.io/#getting-started to retrieve data  
-  * Cleaning Data (Python)
+  * Cleaning Data  
   * Choosing data parameters for use in machine learning models  
     * Chosen: Player height, weight, and age weighted by playtime in game
   * Saving Data to CSV
