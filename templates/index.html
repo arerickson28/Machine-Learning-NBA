@@ -27,17 +27,21 @@
 </head>
 
 <body>
-
-    <br><h1>Use NBA Data To Predict A Win</h1><br>
-
-    <div class="row">
-        <div class="col-12">
-            <img class="trophy_slide"
-                src="https://advantagetrophy.com/wp-content/uploads/2019/05/advantage-trophy-logo.png" alt="trophy"
-                style="width:175px;height:200px;">
+    <!-- Adding navbar to team page -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"><strong>Predict the Game!</strong> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="team">Meet the Team</a>
+            </li>
+          </ul>
         </div>
-    </div>
-
+    </nav>
+      
+    <br><h1>Use NBA Data To Predict A Win</h1><br>
 
     <hr>
 
@@ -61,14 +65,20 @@
     <hr>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <h2>Home Team</h2>
             <div id="Team1Selector"></div>
             <div id="Team1Logo"></div>
             <div id="Team1Stats" class="stats"></div>
         </div>
 
-        <div class="col-6">
+        <div class="col-2">
+            <img class="trophy_slide"
+                src="https://advantagetrophy.com/wp-content/uploads/2019/05/advantage-trophy-logo.png" alt="trophy"
+                style="width:175px;height:200px;">
+        </div>
+
+        <div class="col-5">
             <h2>Visiting Team</h2>
             <div id="Team2Selector"></div>
             <div id="Team2Logo"></div>
@@ -76,14 +86,7 @@
         </div>
     </div>
 
-    <!-- Adding team page -->
     <hr>
-
-        <div class="row mr-5">
-            <div class="col-md-12 text-right"> 
-                <h4>Meet the <a href="team" target= "_self">team</a> behind the scene</h4>
-            </div>
-        </div>
 
 
     <!-- End Rhyce's code -->
