@@ -30,10 +30,10 @@ function getTeamStats(teamNumber) {
         url: `/getTeamStats/${teamName}`, 
         async: false}).responseJSON;
 
-    let playerHTML = `<table id = team${teamNumber}Table>
+    let playerHTML = `<br><table id = team${teamNumber}Table class="table">
     <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
     <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th>
-    <th> Input Time to Play (minutes)</th></tr>`;
+    <th> Input Play Time (min)</th></tr>`;
 
     for (i = 0; i < teamStats.length; i++) {
         playerHTML += `<tr>
