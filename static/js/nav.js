@@ -33,7 +33,7 @@ function getTeamStats(teamNumber) {
     let playerHTML = `<br><table id = team${teamNumber}Table class="table">
     <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
     <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th>
-    <th> Input Play Time (min)</th></tr>`;
+    <th id="playtime${teamNumber}">Input time (min)</th></tr>`;
 
     for (i = 0; i < teamStats.length; i++) {
         playerHTML += `<tr>
@@ -43,7 +43,7 @@ function getTeamStats(teamNumber) {
         <td>${Math.round(teamStats[i]['player_weight'])}</td>
         <td>${teamStats[i]['college']} </td>
         <td>${teamStats[i]['draft_year']} </td>
-        <td><input type="number" id="time${i}"></td>
+        <td><input type="float" id="time${teamNumber}-${i}" class="inputClass"></td>
         </tr>`;
     }
 
@@ -99,7 +99,7 @@ predict.on("click", function()
 
                     // This is reading the stats selected on the page along with the user input times.
                     for (i = 1; i < myTab.rows.length; i++) {
-                        var playerTime = document.getElementById(`time${i-1}`);
+                        var playerTime = document.getElementById(`time${z}-${i-1}`);
 
                         // Adding up all the time-weighted params
                     
@@ -125,7 +125,6 @@ predict.on("click", function()
                     url: `/getWinner/${HomeTeam}&${VisitingTeam}&${homeHeightAvg}&${homeWeightAvg}
                     &${homeAgeAvg}&${visHeightAvg}&${visWeightAvg}&${visAgeAvg}`,
                     async: false}).responseJSON;
-
             
                     winningName = winnerDetails["winner"];
             
@@ -149,3 +148,50 @@ predict.on("click", function()
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
 document.getElementById('Team2Selector').innerHTML = getTeamInnerHTML(2);
+
+
+document.body.addEventListener('focusout', function (evt) {
+    if (evt.target.className === 'inputClass') {
+        var myTab1 = document.getElementById(`team1Table`);
+        totalPlayerTime1 = 0;
+        var myTab2 = document.getElementById(`team2Table`);    
+        totalPlayerTime2 = 0;
+
+        document.getElementById("TwoTeamsNeeded").innerHTML = `` ;
+        if (!myTab1 || !myTab2) {
+            document.getElementById("TwoTeamsNeeded").innerHTML = `<h2>Please Select Two Teams When Entering Time</h2>` ;
+        }
+
+        if (myTab1) {
+        for (i = 1; i < myTab1.rows.length; i++) {
+            rowTime1 = document.getElementById(`time1-${i-1}`).value;
+            rowTime1 = rowTime1 || 0;
+            if (rowTime1 > 48) {
+                document.getElementById(`time1-${i-1}`).style.borderColor = 'red';
+            }
+            if (rowTime1 <= 48) {
+                document.getElementById(`time1-${i-1}`).style.borderColor = 'grey';
+            }
+            totalPlayerTime1 += parseFloat(rowTime1);
+        }}
+
+        if (myTab2) {
+        for (i = 1; i < myTab2.rows.length; i++) {
+            rowTime2 = document.getElementById(`time2-${i-1}`).value;
+            rowTime2 = rowTime2 || 0;
+            if (rowTime2 > 48) {
+                document.getElementById(`time2-${i-1}`).style.borderColor = 'red';
+            }
+            if (rowTime2 <= 48) {
+                document.getElementById(`time2-${i-1}`).style.borderColor = 'grey';
+            }
+
+            totalPlayerTime2 += parseFloat(rowTime2);
+        }}
+
+        document.getElementById('playtime1').innerHTML = `Input time (${totalPlayerTime1} min)`;
+        document.getElementById('playtime2').innerHTML = `Input time (${totalPlayerTime2} min)`;
+
+    }
+
+}, false);

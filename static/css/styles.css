@@ -75,3 +75,7 @@ tr:nth-child(odd) {
         height: 2px ;
         background-color: goldenrod ;
     }
+
+    .inputClass {
+        border-color: grey;
+    }
