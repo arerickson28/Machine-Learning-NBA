@@ -35,11 +35,11 @@ tr:nth-child(odd) {
 
 @keyframes slidein {
     0% {
-      margin-right: 20%;
+      margin-right: 50%;
     }
 
     100% {
-        margin-left: 20%;
+        margin-left: 60%;
     }
 }
   
@@ -68,10 +68,18 @@ tr:nth-child(odd) {
     }
 
     .winner {
-        color: goldenrod ;
+        color: #62b966  ;
     }
 
     hr {
         height: 2px ;
         background-color: goldenrod ;
     }
+
+h1 {
+    color: #7f0000;
+}
+
+h2 {
+    color:#000022;
+}
