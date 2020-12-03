@@ -59,6 +59,7 @@ tr:nth-child(odd) {
 .button {
       background-color: white; 
       color: black; 
+      font-weight: 600;
       border: 2px solid #4CAF50;
     }
     
@@ -67,14 +68,14 @@ tr:nth-child(odd) {
       color: white;
     }
 
-    .winner {
-        color: #62b966  ;
-    }
+.winner {
+    color: #62b966 ;
+}
 
-    hr {
-        height: 2px ;
-        background-color: goldenrod ;
-    }
+hr {
+    height: 2px ;
+    background-color: goldenrod ;
+}
 
 .inputClass {
         border-color: grey;
@@ -86,5 +87,27 @@ h1 {
 
 h2 {
     color:#000022;
+
 }
 
+h3 {
+    color: #ec2525fa;
+    font-weight: 600;
+}
+
+#homeORvisit {
+    color: #62b966;
+    font-weight: 450;
+}
+
+#winning_team_name h2 {
+    color: #7f0000;
+}
+
+.inst {
+    font-size: 0.9rem;
+}
+
+.time {
+    color: #f8395c;
+}
