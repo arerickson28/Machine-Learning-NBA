@@ -83,7 +83,7 @@ predict.on("click", function()
         if (HomeTeam == ''|| VisitingTeam == '')
 
                 {
-                    document.getElementById("TwoTeamsNeeded").innerHTML = `<h2>Please Select Two Teams To Make A Prediction</h2>` ;
+                    document.getElementById("TwoTeamsNeeded").innerHTML = `<h3>Please Select Two Teams To Make A Prediction</h3>` ;
                     document.getElementById("winning_team_name").innerHTML = `` ;
                     document.getElementById("winning_team_logo").innerHTML = `` ;
                     document.getElementById("homeORvisit").innerHTML = `` ;
@@ -159,7 +159,7 @@ document.body.addEventListener('focusout', function (evt) {
 
         document.getElementById("TwoTeamsNeeded").innerHTML = `` ;
         if (!myTab1 || !myTab2) {
-            document.getElementById("TwoTeamsNeeded").innerHTML = `<h2>Please Select Two Teams When Entering Time</h2>` ;
+            document.getElementById("TwoTeamsNeeded").innerHTML = `<h3>Please Select Two Teams When Entering Time</h3>` ;
         }
 
         if (myTab1) {
@@ -191,6 +191,25 @@ document.body.addEventListener('focusout', function (evt) {
 
         document.getElementById('playtime1').innerHTML = `Input time (${totalPlayerTime1} min)`;
         document.getElementById('playtime2').innerHTML = `Input time (${totalPlayerTime2} min)`;
+
+        // Warn the user to add up the input time to 240 for each team
+        document.getElementById("MinutesNeeded").innerHTML = `` ;
+        if (totalPlayerTime1 != 240)  {
+            document.getElementById("MinutesNeeded").innerHTML = `<h3 class='text-left'>⊲Please make sure the minutes are added up to 240</h3>`;
+            document.getElementById('playtime1').innerHTML = `<div class="time">Input time (${totalPlayerTime1} min)</div>`;
+        } 
+
+        if (totalPlayerTime2 != 240)  {
+            document.getElementById("MinutesNeeded").innerHTML = `<h3 class='text-right'>Please make sure the minutes are added up to 240⊳</h3>`;
+            document.getElementById('playtime2').innerHTML = `<div class="time">Input time (${totalPlayerTime2} min)</div>`;
+
+        } 
+
+        if (totalPlayerTime1 != 240 && totalPlayerTime2 != 240)  {
+            document.getElementById("MinutesNeeded").innerHTML = `<h3>⊲Please make sure the minutes are added up to 240⊳</h3>`;
+            document.getElementById('playtime2').innerHTML = `<div class="time">Input time (${totalPlayerTime2} min)</div>`;
+
+        } 
 
     }
 
