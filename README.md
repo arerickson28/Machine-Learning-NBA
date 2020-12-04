@@ -39,5 +39,7 @@ To predict the outcome of basketball games using parameters such as player heigh
   4. Navigate to 127.0.0.1/5000 in your Chrome browser
   5. Follow instructions on the page and predict a winner!
   
+We hope you have a BALL:basketball: playing around with our website!
+  
   
 
