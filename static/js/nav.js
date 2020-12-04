@@ -76,6 +76,16 @@ function getWinningTeamLogo(winningName)
 var predict = d3.select(".button")
 predict.on("click", function() 
     {
+        errors = document.getElementById("MinutesNeeded").innerHTML;
+
+        if (errors !== '') {
+
+            document.getElementById("TwoTeamsNeeded").innerHTML = `<h3>Please Fix your errors in red below</h3>` ;
+            document.getElementById("winning_team_name").innerHTML = `` ;
+            document.getElementById("winning_team_logo").innerHTML = `` ;
+            document.getElementById("homeORvisit").innerHTML = `` ;
+        } else {
+
         let HomeTeam = querySelector(1)['teamName'];
         let VisitingTeam = querySelector(2)['teamName'];
         
@@ -143,7 +153,7 @@ predict.on("click", function()
                     document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
                     document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
                         with ${Math.round(winnerDetails['accuracy'])}% accuracy.`;
-                }
+                }}
     });
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
@@ -166,10 +176,10 @@ document.body.addEventListener('focusout', function (evt) {
         for (i = 1; i < myTab1.rows.length; i++) {
             rowTime1 = document.getElementById(`time1-${i-1}`).value;
             rowTime1 = rowTime1 || 0;
-            if (rowTime1 > 48) {
+            if (rowTime1 > 48 || rowTime1 < 0) {
                 document.getElementById(`time1-${i-1}`).style.borderColor = 'red';
             }
-            if (rowTime1 <= 48) {
+            if (rowTime1 <= 48 & rowTime1 > 0) {
                 document.getElementById(`time1-${i-1}`).style.borderColor = 'grey';
             }
             totalPlayerTime1 += parseFloat(rowTime1);
@@ -179,10 +189,10 @@ document.body.addEventListener('focusout', function (evt) {
         for (i = 1; i < myTab2.rows.length; i++) {
             rowTime2 = document.getElementById(`time2-${i-1}`).value;
             rowTime2 = rowTime2 || 0;
-            if (rowTime2 > 48) {
+            if (rowTime2 > 48 || rowTime2 < 0) {
                 document.getElementById(`time2-${i-1}`).style.borderColor = 'red';
             }
-            if (rowTime2 <= 48) {
+            if (rowTime2 <= 48 & rowTime1 > 0) {
                 document.getElementById(`time2-${i-1}`).style.borderColor = 'grey';
             }
 
@@ -210,7 +220,7 @@ document.body.addEventListener('focusout', function (evt) {
             document.getElementById('playtime2').innerHTML = `<div class="time">Input time (${totalPlayerTime2} min)</div>`;
 
         } 
-
+    
     }
 
 }, false);
