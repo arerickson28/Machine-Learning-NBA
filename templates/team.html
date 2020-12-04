@@ -41,6 +41,9 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/"><strong>Meet the Team</strong><span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/arerickson28/Machine-Learning-NBA" target="_blank">Original Repo</a>
+                </li>
               </ul>
             </div>
         </nav>
@@ -54,7 +57,7 @@
                     <img src="https://media-exp1.licdn.com/dms/image/C5603AQE6Nl4hFBqBig/profile-displayphoto-shrink_200_200/0?e=1612396800&v=beta&t=dOY07LXZJT7fcIF0i9OWlFhYs9wcB7T8Yzn7bvFV3Wc" class="card-img-top" alt="ali">
                     <div class="card-body">
                         <h3><a href="https://www.linkedin.com/in/alexis-anderson-a1018528/" target="_blank">Alexis Anderson</a></h3>
-                        <p class="card-text">.................</p>
+                        <div id="blooper1"></div>
                     <div class="d-flex justify-content-between align-items-center">
                     </div>
                     </div>
@@ -66,7 +69,7 @@
                     <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGlQD6ZGA3QsQ/profile-displayphoto-shrink_200_200/0/1596226417813?e=1612396800&v=beta&t=eg-CtwXaUZFiysZCLaylt5ZxKP1jAeOhms6DE_6w28w" class="card-img-top" alt="jason">
                     <div class="card-body">
                         <h3><a href="https://www.linkedin.com/in/jason-alfred-685354a/" target="_blank">Jason Alfred</a></h3>
-                        <p class="card-text">.................</p>
+                        <div id="blooper2"></div>
                     <div class="d-flex justify-content-between align-items-center">
                     </div>                   
                     </div>
@@ -78,8 +81,7 @@
                     <img src="https://ca.slack-edge.com/T0142NEUNPL-U014AQT12US-71cdc3c37009-512" class="card-img-top" alt="rhyce">
                     <div class="card-body">
                         <h3><a href="https://www.linkedin.com/in/rhyce-erickson-a74943a0/" target="_blank">Rhyce Erickson</a></h3>
-                        </a>
-                        <p class="card-text">.................</p>
+                        <div id="blooper3"></div>
                     <div class="d-flex justify-content-between align-items-center">
                     </div>
                     </div>
@@ -90,8 +92,8 @@
                 <div class="card mb-4 shadow-sm" style="width: 17rem;">
                     <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGINImMwrg4MQ/profile-displayphoto-shrink_200_200/0/1585802162713?e=1612396800&v=beta&t=SOqqtyck5DIoex7pW6qReb0gbK-pPrqhe2CfPSvRlog" class="card-img-top" alt="cynthia">
                     <div class="card-body">
-                        <h3><a href="https://www.linkedin.com/in/cynthia-kunakom/" target="_blank">Cynthia Kunakom</h3></a>    
-                        <p class="card-text">.................</p>
+                        <h3><a href="https://www.linkedin.com/in/cynthia-kunakom/" target="_blank">Cynthia Kunakom</a></h3>    
+                        <div id="blooper4"></div>
                     <div class="d-flex justify-content-between align-items-center">
                     </div>
                     </div>
@@ -103,20 +105,74 @@
 
     <hr>
 
-    <!-- Add Bloopers? -->
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Bloopers?
-      </button>
-    
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div>
-    </div>
-    <!-- Add Bloopers? -->
+    <!-- Add Bloopers -->
+    <p>
+        <a class="btn btn-dark" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Code Bloopers</a>
+        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Players Bloopers</button>
+    </p>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <p>
+        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="bloopFunc()">
+          Ultimate Bloop!
+        </button>
+    </p>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+              <h4>Cut #1</h4>
+              <div class="text-left ml-3"><h5>Cynthia summed up everything in a simple commit message 😊</h5></div> 
+              <img src="static/image/jason_demands.png" width="800px" alt="jason_demands" class="rounded mx-auto d-block" >
+              <img src="static/image/jason_wants_it.png" width="800px" alt="jason_wants_it" class="rounded mx-auto d-block" >
+    
+              <br>
+              <div class="text-left ml-3"><h5>Jason retaliated back...except to the wrong person though 👀</h5></div> 
+              <img src="static/image/jason_retaliation.png" width="800px" alt="jason_fightback" class="rounded mx-auto d-block" >
+              
+              <h4>Cut #2</h4>
+              <div class="text-left ml-3"><h5>Original Instruction 🧁</h5></div> 
+              <img src="static/image/cupcakes_instrc.png" width="800px" alt="cupcakes_instrc" class="rounded mx-auto d-block" >
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="col-6">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div class="card card-body">
+              <h4>Photoshoot</h4>
+              <div class="text-left ml-3"><h5>Rhyce got our thinking faces</h5></div> 
+              <img src="static/image/team_pic1.PNG" width="600px" alt="team_pic_thinking" class="rounded mx-auto d-block" >
+
+              <br>
+
+              <div class="text-left ml-3"><h5>All right, team! SMILE! </h5></div> 
+              <img src="static/image/team_pic2.PNG" width="600px" alt="team_pic_smiling" class="rounded mx-auto d-block" >
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div class="text-center ml-3"><h2>Wassup, Dom's Office! 😆</h2></div> 
+                    <img src="static/image/team_pic0.png" width="1000px" class="rounded mx-auto d-block" alt="team_pic_office">
+                </div>
+         </div>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <!-- Our js -->
+    <script src="../static/js/nav.js"></script>
+
+    <!-- Add Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 
 </body>
 
