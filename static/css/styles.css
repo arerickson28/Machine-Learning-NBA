@@ -111,3 +111,26 @@ h3 {
 .time {
     color: #f8395c;
 }
+
+#field1 {
+    height: 200px;
+    /* border-bottom: 3px black groove; */
+    position: relative;
+  }
+
+  #field2 {
+    height: 200px;
+    /* border-bottom: 3px black groove; */
+    position: relative;
+  }
+  
+  #ball1 {
+    position: absolute;
+    cursor: pointer;
+  }
+
+    
+  #ball2 {
+    position: absolute;
+    cursor: pointer;
+  }
