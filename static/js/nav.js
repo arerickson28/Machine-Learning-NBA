@@ -261,3 +261,25 @@ document.body.addEventListener('focusout', function (evt) {
     }
 
 }, false);
+
+// Add Bloopers!
+function bloopFunc() {
+    var b1 = document.getElementById("blooper1");
+    b1.innerHTML = `<p class="card-text" onclick="unclick()">Know your place, peasant!</p>`;
+
+    var b2 = document.getElementById("blooper2");
+    b2.innerHTML = `<p class="card-text" onclick="unclick()">Bow down before me, you fool!</p>`;
+
+    var b3 = document.getElementById("blooper3");
+    b3.innerHTML = `<p class="card-text" onclick="unclick()">Hold your tongue, imbecile!</p>`;
+    
+    var b4 = document.getElementById("blooper4");
+    b4.innerHTML = `<p class="card-text" onclick="unclick()">I will not tolerate you savages!</p>`;
+  }
+
+function unclick() {
+    document.getElementById("blooper1").innerHTML = ``;
+    document.getElementById("blooper2").innerHTML = ``;
+    document.getElementById("blooper3").innerHTML = ``;
+    document.getElementById("blooper4").innerHTML = ``;
+}
