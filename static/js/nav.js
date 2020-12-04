@@ -73,12 +73,49 @@ function getWinningTeamLogo(winningName)
         return winningLogo
     }
 
+
+
+function makeEaseOut(timing) {
+        return function(timeFraction) {
+          return 1 - timing(1 - timeFraction);
+        }
+      }
+  
+function bounce(timeFraction) {
+        for (let a = 0, b = 1, result; 1; a += b, b /= 2) {
+          if (timeFraction >= (7 - 4 * a) / 11) {
+            return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+          }
+        }
+      }
+
+
+
 var predict = d3.select(".button")
 predict.on("click", function() 
     {
         let HomeTeam = querySelector(1)['teamName'];
         let VisitingTeam = querySelector(2)['teamName'];
         
+        console.log("hey hey you you")
+
+        let to = field1.clientHeight - ball1.clientHeight;
+            
+                  animate({
+                    duration: 2000,
+                    timing: makeEaseOut(bounce),
+                    draw(progress) {
+                      ball1.style.top = to * progress + 'px'
+                    }} );
+        
+        let too = field2.clientHeight - ball2.clientHeight;
+            
+                    animate({
+                      duration: 2000,
+                      timing: makeEaseOut(bounce),
+                      draw(progress) {
+                        ball2.style.top = too * progress + 'px'
+                      }} );
 
         if (HomeTeam == ''|| VisitingTeam == '')
 
@@ -143,6 +180,10 @@ predict.on("click", function()
                     document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
                     document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
                         with ${Math.round(winnerDetails['accuracy'])}% accuracy.`;
+
+                    
+
+
                 }
     });
 
