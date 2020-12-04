@@ -9,17 +9,19 @@ To predict the outcome of basketball games using parameters such as player heigh
 ### Project involves:  
 * Datawork (Python)
   * API calls to https://www.balldontlie.io/#getting-started to retrieve data  
+  * Kaggle CSV: https://www.kaggle.com/justinas/nba-height-and-weight-analysis
   * Cleaning Data  
   * Choosing data parameters for use in machine learning models  
     * Chosen: Player height, weight, and age weighted by playtime in game
-  * Saving Data to CSV
+  * Preparing a final dataset suitable for a Machine Learning Algorithm
+  * Saving data to CSV
 
 * Developing Machine Learning Models
   * Choosing models  
     * Chosen: Deep Neural Network
-  * Training models  
-  * Testing models  
-  * Saving models  
+  * Training model  
+  * Testing model  
+  * Saving model and scaler (Pickle)
 
 * Website Design  
   * Setting up Flask Server (Python)
@@ -27,7 +29,15 @@ To predict the outcome of basketball games using parameters such as player heigh
   * CSS  
   * Javascript  
     * Calls Flask server to retrieve player stats and run machine learning model
-  * Hosting Website
+    * User can create their own hypothetical match up and run the team stats through our model to predict a winner!
+  * Hosting Website on Heroku
+  
+**INSTRUCTIONS**
+  1. Clone this repository
+  2. Navigate to the main project folder in a terminal
+  3. Run `python app.py`
+  4. Navigate to 127.0.0.1/5000 in your Chrome browser
+  5. Follow instructions on the page and predict a winner!
   
   
 
