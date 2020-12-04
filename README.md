@@ -1,7 +1,7 @@
-# Machine-Learning-NBA
+# Machine-Learning-NBA :basketball:
 ## UMN Data Visualization &amp; Analytics Bootcamp: Final Project  
 
-For our final project, we use National Basketball Association player and team statistic data to explore machine learning concepts.  
+For our final project, we use NBA :basketball:  player and team statistic data to explore machine learning concepts.  
 
 ### Purpose:  
 To predict the outcome of basketball games using parameters such as player height, weight, age, and time spent contributing to game.  
@@ -39,7 +39,7 @@ To predict the outcome of basketball games using parameters such as player heigh
   4. Navigate to 127.0.0.1/5000 in your Chrome browser
   5. Follow instructions on the page and predict a winner!
   
-We hope you have a BALL:basketball: playing around with our website!
+We hope you have a BALL :basketball:  playing around with our website!
   
   
 
