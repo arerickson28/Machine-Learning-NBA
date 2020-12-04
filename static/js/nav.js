@@ -73,12 +73,59 @@ function getWinningTeamLogo(winningName)
         return winningLogo
     }
 
+
+
+function makeEaseOut(timing) {
+        return function(timeFraction) {
+          return 1 - timing(1 - timeFraction);
+        }
+      }
+  
+function bounce(timeFraction) {
+        for (let a = 0, b = 1, result; 1; a += b, b /= 2) {
+          if (timeFraction >= (7 - 4 * a) / 11) {
+            return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+          }
+        }
+      }
+
+
+
 var predict = d3.select(".button")
 predict.on("click", function() 
     {
+        errors = document.getElementById("MinutesNeeded").innerHTML;
+
+        if (errors !== '') {
+
+            document.getElementById("TwoTeamsNeeded").innerHTML = `<h3>Please Fix your errors in red below</h3>` ;
+            document.getElementById("winning_team_name").innerHTML = `` ;
+            document.getElementById("winning_team_logo").innerHTML = `` ;
+            document.getElementById("homeORvisit").innerHTML = `` ;
+        } else {
+
         let HomeTeam = querySelector(1)['teamName'];
         let VisitingTeam = querySelector(2)['teamName'];
         
+        console.log("hey hey you you")
+
+        let to = field1.clientHeight - ball1.clientHeight;
+            
+                  animate({
+                    duration: 2000,
+                    timing: makeEaseOut(bounce),
+                    draw(progress) {
+                      ball1.style.top = to * progress + 'px'
+                    }} );
+        
+        let too = field2.clientHeight - ball2.clientHeight;
+            
+                    animate({
+                      duration: 2000,
+                      timing: makeEaseOut(bounce),
+                      draw(progress) {
+                        ball2.style.top = too * progress + 'px'
+                      }} );
 
         if (HomeTeam == ''|| VisitingTeam == '')
 
@@ -143,7 +190,7 @@ predict.on("click", function()
                     document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
                     document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
                         with ${Math.round(winnerDetails['accuracy'])}% accuracy.`;
-                }
+                }}
     });
 
 document.getElementById('Team1Selector').innerHTML = getTeamInnerHTML(1);
@@ -166,10 +213,10 @@ document.body.addEventListener('focusout', function (evt) {
         for (i = 1; i < myTab1.rows.length; i++) {
             rowTime1 = document.getElementById(`time1-${i-1}`).value;
             rowTime1 = rowTime1 || 0;
-            if (rowTime1 > 48) {
+            if (rowTime1 > 48 || rowTime1 < 0) {
                 document.getElementById(`time1-${i-1}`).style.borderColor = 'red';
             }
-            if (rowTime1 <= 48) {
+            if (rowTime1 <= 48 & rowTime1 > 0) {
                 document.getElementById(`time1-${i-1}`).style.borderColor = 'grey';
             }
             totalPlayerTime1 += parseFloat(rowTime1);
@@ -179,10 +226,10 @@ document.body.addEventListener('focusout', function (evt) {
         for (i = 1; i < myTab2.rows.length; i++) {
             rowTime2 = document.getElementById(`time2-${i-1}`).value;
             rowTime2 = rowTime2 || 0;
-            if (rowTime2 > 48) {
+            if (rowTime2 > 48 || rowTime2 < 0) {
                 document.getElementById(`time2-${i-1}`).style.borderColor = 'red';
             }
-            if (rowTime2 <= 48) {
+            if (rowTime2 <= 48 & rowTime1 > 0) {
                 document.getElementById(`time2-${i-1}`).style.borderColor = 'grey';
             }
 
@@ -210,7 +257,7 @@ document.body.addEventListener('focusout', function (evt) {
             document.getElementById('playtime2').innerHTML = `<div class="time">Input time (${totalPlayerTime2} min)</div>`;
 
         } 
-
+    
     }
 
 }, false);
