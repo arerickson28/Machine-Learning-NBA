@@ -184,12 +184,17 @@ predict.on("click", function()
                     }
 
                     let fullTeamName = querySelector(teamNumber)['teamNameFull'];
-
+                    // If time is not entered for each team, warn the user
+                    if (document.getElementById("playtime1").innerHTML == 'Input time (min)' || document.getElementById("playtime2").innerHTML == 'Input time (min)') {
+                        document.getElementById("TwoTeamsNeeded").innerHTML = `<h3>Please input the time for the players</h3>` ;
+                    }
+                    else {
                     document.getElementById("TwoTeamsNeeded").innerHTML = `` ;
                     document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
                     document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
                     document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
                         with ${Math.round(winnerDetails['accuracy'])}% accuracy.`;
+                    }
                 }}
     });
 
