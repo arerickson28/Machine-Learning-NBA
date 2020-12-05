@@ -32,7 +32,7 @@ function getTeamStats(teamNumber) {
         async: false
     }).responseJSON;
 
-    let playerHTML = `<br><table id = team${teamNumber}Table class="table.responsive">
+    let playerHTML = `<br><table id = team${teamNumber}Table class="table">
     <tr> <th>Name</th> <th>Age</th> <th>Ht (cm)</th> 
     <th>Wt (kg)</th> <th>College</th> <th>Draft Year</th>
     <th id="playtime${teamNumber}">Input time (min)</th></tr>`;
