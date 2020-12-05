@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../static/js/teams.js"></script>
 
-     <!-- Animate js -->
+    <!-- Animate js -->
     <script src="https://js.cx/libs/animate.js"></script>
 
     <!--Our css-->
@@ -33,25 +33,29 @@
     <!-- Adding navbar to team page -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">🏀</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/"><strong>Predict the Game!</strong> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="team">Meet the Team</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/arerickson28/Machine-Learning-NBA" target="_blank">Original Repo</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><strong>Predict the Game!</strong> <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team">Meet the Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/arerickson28/Machine-Learning-NBA"
+                        target="_blank">Original Repo</a>
+                </li>
+            </ul>
         </div>
     </nav>
-      
-    <br><h1>Use NBA Data To Predict A Win</h1><br>
+
+    <br>
+    <h1>Use NBA Data To Predict A Win</h1><br>
 
     <!-- Instructions? -->
     <div class="row">
@@ -65,12 +69,27 @@
 
         <div class="col-8">
             <div class="alert alert-light" role="alert">
-                <h5 class="alert-heading text-justify">Instructions!</h5>
-                <div class="text-justify inst">Turn the input box red when it's over 48 minutes per player. Teams must have 240 minutes per side... please select 2 teams to predict. 
-                    Pudding biscuit tootsie roll sweet roll cupcake pie ice cream. Candy donut cake muffin chocolate cake gummies bear claw toffee. 
-                    Gingerbread sweet roll gummies chocolate brownie dessert. Bear claw icing marzipan sweet cake. Soufflé donut halvah cake tart carrot cake 
-                    muffin chupa chups. Donut soufflé lollipop liquorice tiramisu icing. Cheesecake marshmallow halvah lollipop topping gummies candy cake. 
-                    Powder carrot cake candy sweet roll bonbon candy pastry.</div>
+                <h5 class="alert-heading text-justify">Welcome to our NBA game predictor!</h5>
+                <div class="text-justify inst">
+                    <p>An NBA game has 5 players on each team that can be substituted throughout a
+                        48 minute game. Using machine learning with players' physical attributes and age over thousands
+                        of games,
+                        come try your hand leading a team to victory! </p>
+                    <p>You can pick any players on the current roster of each team and allow them to play up to 48
+                        minutes per player.
+                        Remember to pick at least 5 players and have fun!</p>
+                    </p>
+                    <ol>
+                        <li>Select a NBA Home team and Visiting team</li>
+                        <li>Input Player Time in minutes for any player on each team (48 minutes max per player)</li>
+                        <li>Keep adding players and/or time until total team time is 240 minutes per side</li>
+                        <li>Click on Predict to see which team will win!!</li>
+                    </ol>
+
+
+
+
+                </div>
             </div>
         </div>
 
@@ -83,11 +102,11 @@
         </div>
 
     </div>
-    <!-- Instructions -->   
+    <!-- Instructions -->
 
     <hr>
 
-     <div class="row">
+    <div class="row">
         <div class="col-12">
             <div id="TwoTeamsNeeded"></div>
             <button type=button class="button button1">Predict</button>
@@ -133,12 +152,14 @@
     <hr>
 
     <!-- Add Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 
-     <!-- End Rhyce's code -->
+    <!-- End Rhyce's code -->
     <script src="../static/js/nav.js"></script>
 
-  
+
 </body>
 
 </html>

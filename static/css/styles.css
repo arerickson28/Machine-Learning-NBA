@@ -14,6 +14,10 @@ body {
     table-layout: fixed;
 }
 
+#instructionHeader {
+    text-align: center;
+}
+
 th, td {
     width: 15%;
 }
