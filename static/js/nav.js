@@ -195,7 +195,7 @@ predict.on("click", function () {
                 document.getElementById("winning_team_name").innerHTML = `<h2>${fullTeamName}</h2>`;
                 document.getElementById("winning_team_logo").innerHTML = getWinningTeamLogo(winningName);
                 document.getElementById("homeORvisit").innerHTML = `Congratulations!  The ${teamSide} will win 
-                        with ${Math.round(winnerDetails['accuracy'])}% accuracy.`;
+                        with ${Math.round(winnerDetails['accuracy'])}% certainty.`;
             }
         }
     }
