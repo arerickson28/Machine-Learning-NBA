@@ -39,6 +39,10 @@ To predict the outcome of basketball games using parameters such as player heigh
   4. Navigate to 127.0.0.1/5000 in your Chrome browser
   5. Follow instructions on the page and predict a winner!
   
+  **OR**
+  
+  Navigate to our site hosted on Heroku: https://machine-learning-nba.herokuapp.com/
+  
 We hope you have a BALL :basketball:  playing around with our website!
   
   
