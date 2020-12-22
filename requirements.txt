@@ -1,46 +1,55 @@
-absl-py @ file:///tmp/build/80754af9/absl-py_1607439979954/work
-astor==0.8.1
-attrs @ file:///tmp/build/80754af9/attrs_1604765588209/work
+absl-py==0.11.0
+astunparse==1.6.3
+attrs==20.3.0
+cachetools==4.2.0
 certifi==2020.12.5
+chardet==4.0.0
 click==7.1.2
 Flask==1.1.2
 Flask-SQLAlchemy==2.4.4
-gast==0.2.2
+flatbuffers==1.12
+gast==0.3.3
+google-auth==1.24.0
+google-auth-oauthlib==0.4.2
 google-pasta==0.2.0
-grpcio @ file:///opt/concourse/worker/volumes/live/8b2ee759-8268-4f0f-6b5b-5ee71275aac0/volume/grpcio_1597430912663/work
+grpcio==1.32.0
 gunicorn==20.0.4
-h5py @ file:///opt/concourse/worker/volumes/live/09cb9b5c-fac0-4b8e-4a2a-844fb10f14cb/volume/h5py_1593454153886/work
-importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1602276842396/work
+h5py==2.10.0
+idna==2.10
+importlib-metadata==3.3.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
-joblib @ file:///tmp/build/80754af9/joblib_1607970656719/work
-jsonschema @ file:///tmp/build/80754af9/jsonschema_1602607155483/work
-Keras==2.3.1
-Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
-Keras-Preprocessing==1.1.0
-Markdown @ file:///opt/concourse/worker/volumes/live/b4c990c3-329e-4be3-5f93-a75bb18a3a93/volume/markdown_1605111067479/work
+joblib==1.0.0
+jsonschema==3.2.0
+Keras-Preprocessing==1.1.2
+Markdown==3.3.3
 MarkupSafe==1.1.1
-mkl-fft==1.2.0
-mkl-random==1.1.1
-mkl-service==2.3.0
 numpy==1.19.4
-opt-einsum==3.1.0
-pandas==1.1.4
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
-protobuf==3.13.0
-pyrsistent @ file:///opt/concourse/worker/volumes/live/d7ed6755-1956-4a16-5499-c03638db758d/volume/pyrsistent_1600141722278/work
+oauthlib==3.1.0
+opt-einsum==3.3.0
+pandas==1.1.5
+pickleshare==0.7.5
+protobuf==3.14.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pyrsistent==0.17.3
 python-dateutil==2.8.1
 pytz==2020.4
-PyYAML==5.3.1
-scikit-learn @ file:///opt/concourse/worker/volumes/live/5aebc36a-9e26-4cf4-48a2-103c2e39086d/volume/scikit-learn_1598376928019/work
-scipy @ file:///opt/concourse/worker/volumes/live/d2cc8ac1-8922-48bc-7969-1f576a9f572d/volume/scipy_1597686637832/work
-six @ file:///opt/concourse/worker/volumes/live/5839b2d2-7415-4ff0-4c61-c4cddf798f7c/volume/six_1605205320479/work
-SQLAlchemy==1.3.20
-tensorboard==2.0.0
-tensorflow==2.0.0
-tensorflow-estimator==2.0.0
+requests==2.25.1
+requests-oauthlib==1.3.0
+rsa==4.6
+scikit-learn==0.23.2
+scipy==1.5.4
+six==1.15.0
+SQLAlchemy==1.3.22
+tensorboard==2.4.0
+tensorboard-plugin-wit==1.7.0
+tensorflow==2.4.0
+tensorflow-estimator==2.4.0
 termcolor==1.1.0
-threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+threadpoolctl==2.1.0
+typing-extensions==3.7.4.3
+urllib3==1.26.2
 Werkzeug==1.0.1
 wrapt==1.12.1
-zipp @ file:///tmp/build/80754af9/zipp_1604001098328/work
+zipp==3.4.0
